@@ -1,0 +1,6 @@
+[submodule "modules/jenkins"]
+	path = modules/jenkins
+	url = https://github.com/WianVos/puppet-jenkins.git
+[submodule "modules/puppetci"]
+	path = modules/puppetci
+	url = https://github.com/WianVos/puppet-ci.git
