@@ -12,3 +12,7 @@ node default {}
 node 'agent' {
   notify {'agent':}
 }
+
+node 'puppetci' {
+    class{'puppetci':}
+}
