@@ -27,4 +27,17 @@ Vagrant.configure("2") do |config|
       agent_puppet.options = "--test --waitforcert"
     end
   end
+  
+  config.vm.define :puppetci do |puppetci|
+    puppetci.vm.hostname = "puppetci"
+    puppetci.vm.box      = "centos-64-x86_64-minimal-pe-agent"
+    puppetci.vm.box_url  = "https://s3-eu-west-1.amazonaws.com/xebia-vm/vagrant-boxes/centos-64-x86_64-minimal-pe-agent.box"
+	
+    puppetci.vm.network :private_network, ip: "192.168.111.230"
+	puppetci.vm.network :forwarded_port, guest: 8080, host: 18080
+	
+    puppetci.vm.provision :puppet_server do |agent_puppet|
+      agent_puppet.options = "--test --waitforcert"
+    end
+  end
 end
